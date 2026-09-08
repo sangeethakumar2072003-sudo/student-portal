@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <h1>Admin Dashboard</h1>
+
+    <div class="stats">
+
+        <div class="stat">
+            <h2>{{ students }}</h2>
+            <p>Students</p>
+        </div>
+
+        <div class="stat">
+            <h2>{{ courses }}</h2>
+            <p>Courses</p>
+        </div>
+
+        <div class="stat">
+            <h2>{{ results }}</h2>
+            <p>Quiz Results</p>
+        </div>
+
+    </div>
+
+
+    <div class="admin-menu">
+
+        <a class="admin-card"
+           href="{{ url_for('add_course') }}">
+            ➕
+            <h3>Add Course</h3>
+        </a>
+
+        <a class="admin-card"
+           href="{{ url_for('add_material') }}">
+            📄
+            <h3>Upload Material</h3>
+        </a>
+
+        <a class="admin-card"
+           href="{{ url_for('add_video') }}">
+            🎥
+            <h3>Add Video</h3>
+        </a>
+
+        <a class="admin-card"
+           href="{{ url_for('add_quiz') }}">
+            📝
+            <h3>Create Quiz</h3>
+        </a>
+
+        <a class="admin-card"
+           href="{{ url_for('students') }}">
+            👨‍🎓
+            <h3>View Students</h3>
+        </a>
+
+        <a class="admin-card"
+           href="{{ url_for('results') }}">
+            📊
+            <h3>View Results</h3>
+        </a>
+
+    </div>
+
+    <div class="course-list">
+        <h2>Courses</h2>
+
+        {% for course in course_list %}
+        <div class="course-item">
+            <div>
+                <h3>{{ course["title"] }}</h3>
+                <p>{{ course["description"] }}</p>
+            </div>
+        </div>
+        {% else %}
+        <p>No courses added yet.</p>
+        {% endfor %}
+    </div>
+
+</div>
+
+{% endblock %}

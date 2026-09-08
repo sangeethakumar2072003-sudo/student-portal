@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+	<h2>Add Video Link</h2>
+
+	<form method="POST">
+
+		<label for="course_id">Course</label>
+
+		<select id="course_id" name="course_id" required>
+			<option value="">Select a course</option>
+			{% for course in courses %}
+			<option value="{{ course['id'] }}">
+				{{ course['title'] }}
+			</option>
+			{% endfor %}
+		</select>
+
+		<label for="title">Video Title</label>
+
+		<input
+			id="title"
+			type="text"
+			name="title"
+			placeholder="Example: Introduction to Python"
+			required
+		>
+
+		<label for="url">Video URL</label>
+
+		<input
+			id="url"
+			type="url"
+			name="url"
+			placeholder="https://www.youtube.com/watch?v=..."
+			required
+		>
+
+		<button type="submit">
+			Add Video
+		</button>
+
+	</form>
+
+</div>
+
+{% endblock %}

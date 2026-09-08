@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <h1>
+        Welcome, {{ session["student_name"] }} 👋
+    </h1>
+
+    <p>
+        Continue your learning journey.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>📚</h2>
+            <h3>Courses</h3>
+
+            <a href="{{ url_for('courses') }}"
+               class="btn">
+                View Courses
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>📝</h2>
+            <h3>Quizzes</h3>
+
+            <a href="{{ url_for('courses') }}"
+               class="btn">
+                Attend Quiz
+            </a>
+        </div>
+
+        <div class="card">
+            <h2>📊</h2>
+            <h3>Results</h3>
+
+            <a href="{{ url_for('my_results') }}"
+               class="btn">
+                View Results
+            </a>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

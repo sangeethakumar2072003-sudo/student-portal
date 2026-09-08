@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="course-page">
+
+    <h1>{{ course["title"] }}</h1>
+
+    <p>
+        {{ course["description"] }}
+    </p>
+
+    <p>
+        <strong>Duration:</strong>
+        {{ course["duration"] }}
+    </p>
+
+
+    <h2>📄 Study Materials</h2>
+
+    {% for material in materials %}
+
+    <div class="item">
+
+        <span>
+            {{ material["title"] }}
+        </span>
+
+        <a class="btn"
+           href="{{ url_for(
+               'download',
+               filename=material['filename']
+           ) }}">
+            Download
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <p>No study materials available.</p>
+
+    {% endfor %}
+
+
+    <h2>🎥 Videos</h2>
+
+    {% for video in videos %}
+
+    <div class="item">
+
+        <span>
+            {{ video["title"] }}
+        </span>
+
+        <a class="btn"
+           href="{{ video['url'] }}"
+           target="_blank">
+            Watch Video
+        </a>
+
+    </div>
+
+    {% else %}
+
+    <p>No videos available.</p>
+
+    {% endfor %}
+
+
+    <h2>📝 Quiz</h2>
+
+    {% if quiz_count > 0 %}
+
+    <a class="btn"
+       href="{{ url_for(
+           'quiz',
+           course_id=course['id']
+       ) }}">
+        Start Quiz
+    </a>
+
+    {% else %}
+
+    <p>No quiz available.</p>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

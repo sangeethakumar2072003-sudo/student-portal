@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h2>Create Quiz Question</h2>
+
+    <form method="POST">
+
+        <label>Course</label>
+
+        <select name="course_id" required>
+
+            {% for course in courses %}
+
+            <option value="{{ course['id'] }}">
+                {{ course["title"] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+        <label>Question</label>
+
+        <textarea
+            name="question"
+            required
+        ></textarea>
+
+        <label>Option 1</label>
+        <input type="text" name="option1" required>
+
+        <label>Option 2</label>
+        <input type="text" name="option2" required>
+
+        <label>Option 3</label>
+        <input type="text" name="option3" required>
+
+        <label>Option 4</label>
+        <input type="text" name="option4" required>
+
+        <label>Correct Answer</label>
+
+        <select name="answer" required>
+
+            <option value="">Select Answer</option>
+
+            <option value="1">
+                Option 1
+            </option>
+
+            <option value="2">
+                Option 2
+            </option>
+
+            <option value="3">
+                Option 3
+            </option>
+
+            <option value="4">
+                Option 4
+            </option>
+
+        </select>
+
+        <button type="submit">
+            Create Question
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

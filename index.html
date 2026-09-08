@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div>
+
+        <h1>
+            Student E-Learning Portal
+        </h1>
+
+        <p>
+            Learn anytime, anywhere with our
+            online learning platform.
+        </p>
+
+        <a href="{{ url_for('register') }}"
+           class="btn">
+            Get Started
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="features">
+
+    <h2>What You Can Do</h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>📚 Courses</h3>
+            <p>
+                View and learn from available courses.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📄 Materials</h3>
+            <p>
+                Read and download study materials.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🎥 Videos</h3>
+            <p>
+                Watch educational videos.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📝 Quizzes</h3>
+            <p>
+                Attend online quizzes and test your knowledge.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📊 Results</h3>
+            <p>
+                Check your marks and quiz results.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>📈 Progress</h3>
+            <p>
+                Track your learning progress.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

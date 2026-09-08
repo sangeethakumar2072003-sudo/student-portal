@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Quiz Results</h1>
+
+<table>
+
+    <tr>
+        <th>Student</th>
+        <th>Course</th>
+        <th>Score</th>
+        <th>Total</th>
+    </tr>
+
+    {% for result in results %}
+
+    <tr>
+
+        <td>
+            {{ result["name"] }}
+        </td>
+
+        <td>
+            {{ result["title"] }}
+        </td>
+
+        <td>
+            {{ result["score"] }}
+        </td>
+
+        <td>
+            {{ result["total"] }}
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}

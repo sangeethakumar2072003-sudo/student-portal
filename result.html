@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="result">
+
+{% if score is defined %}
+
+    <h1>Quiz Completed 🎉</h1>
+
+    <h2>
+        Your Score:
+        {{ score }} / {{ total }}
+    </h2>
+
+    {% if total > 0 %}
+
+    <p>
+        Percentage:
+        {{ ((score / total) * 100)|round(2) }}%
+    </p>
+
+    {% endif %}
+
+    <a href="{{ url_for('courses') }}"
+       class="btn">
+        Back to Courses
+    </a>
+
+{% else %}
+
+    <h1>My Quiz Results</h1>
+
+    <table>
+
+        <tr>
+            <th>Course</th>
+            <th>Score</th>
+            <th>Total</th>
+        </tr>
+
+        {% for result in results %}
+
+        <tr>
+
+            <td>
+                {{ result["title"] }}
+            </td>
+
+            <td>
+                {{ result["score"] }}
+            </td>
+
+            <td>
+                {{ result["total"] }}
+            </td>
+
+        </tr>
+
+        {% else %}
+
+        <tr>
+            <td colspan="3">
+                No results available.
+            </td>
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+{% endif %}
+
+</div>
+
+{% endblock %}

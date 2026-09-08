@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+
+    <h2>Upload Study Material</h2>
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        <label>Course</label>
+
+        <select name="course_id" required>
+
+            {% for course in courses %}
+
+            <option value="{{ course['id'] }}">
+                {{ course["title"] }}
+            </option>
+
+            {% endfor %}
+
+        </select>
+
+        <label>Material Title</label>
+
+        <input
+            type="text"
+            name="title"
+            required
+        >
+
+        <label>Select File</label>
+
+        <input
+            type="file"
+            name="file"
+            required
+        >
+
+        <button type="submit">
+            Upload Material
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}
